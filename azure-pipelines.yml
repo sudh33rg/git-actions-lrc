@@ -12,8 +12,15 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
-
+  
+- task: srlTest@0
+  name: LRC
+  inputs:
+    serverEndpoint: 'LRC'
+    tenantid: '978594865'
+    projectid: '1'
+    testid: '1084'
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
+    echo Run ID of LRC run ${LRC.LRC_RUN_ID}
     echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  displayName: 'Catch the run ID of the LRC run'
